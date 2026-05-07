@@ -440,11 +440,11 @@ function Footer() {
             <p className="text-sm text-muted-foreground">Powering Ideas. Building Tomorrow. Hosted by MITM Mysore — ECE Department.</p>
           </div>
           <div>
-            <h4 className="font-semibold mb-3">Reach Us</h4>
+            <h4 className="font-semibold mb-3">Quick Links</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2"><MapPin className="h-4 w-4" /> MITM, Belawadi, Mysore</li>
-              <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> volt.thinkathon@mitmysore.in</li>
-              <li className="flex items-center gap-2"><Phone className="h-4 w-4" /> +91 99000 00000</li>
+              {NAV.slice(0, 5).map((n) => (
+                <li key={n.h}><a href={n.h} className="hover:text-foreground transition-colors">{n.l}</a></li>
+              ))}
             </ul>
           </div>
           <div>
