@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
   Shield, HeartPulse, Bot, Zap, Trophy, Calendar, MapPin, Users,
-  Menu, X, Instagram, Linkedin, Github, QrCode,
+  Menu, X, Instagram, QrCode,
   ChevronDown, Sparkles, ArrowRight, CheckCircle2,
 } from "lucide-react";
 import { Countdown } from "@/components/Countdown";
