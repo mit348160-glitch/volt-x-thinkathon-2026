@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
   Shield, HeartPulse, Bot, Zap, Trophy, Calendar, MapPin, Users,
-  Menu, X, Instagram, Linkedin, Github, QrCode,
+  Menu, X, Instagram, QrCode,
   ChevronDown, Sparkles, ArrowRight, CheckCircle2,
 } from "lucide-react";
 import { Countdown } from "@/components/Countdown";
@@ -38,12 +38,12 @@ const TIMELINE = [
   { d: "30 May 2026", t: "Winners Announced", desc: "₹15,000 prize pool unlocked for the best builds." },
 ];
 
-const STUDENTS = ["Akshay G", "Likith V", "Sandesh SP", "Saqib Ahmed Z", "Sumukh Bharadwaj KS", "Vaishakh B", "Yashwanth HB"];
+const STUDENTS = ["Akshay G", "Likith V", "Sandesh SP", "Saqib Ahmed Z", "Sumukh Bharadwaj KS", "Vaishakh B", "Subbaiah K P", "Yashwanth HB"];
 const FACULTY = ["Dr. Balakrishna K", "Prof. Shivaprasad K", "Prof. Sandesh N G"];
 
 const FAQS = [
   { q: "Who can participate?", a: "Any undergraduate student passionate about innovation. Teams of 2–4 across disciplines are welcome." },
-  { q: "Is there a registration fee?", a: "Absolutely free. VOLT X THINKATHON 2026 is open to all eligible teams at no cost." },
+  { q: "Is there a registration fee?", a: "Yes. A registration fee of ₹150 per head is applicable for VOLT X THINKATHON 2026." },
   { q: "Where is the venue?", a: "Maharaja Institute of Technology Mysore (MITM) — ECE Department, Belawadi, Srirangapatna." },
   { q: "What should we bring?", a: "Laptops, chargers, your stack of choice, hardware (if any) and unlimited curiosity." },
   { q: "Where are responses stored?", a: "All registrations submitted via the Google Form are securely stored in Google Sheets." },
@@ -182,6 +182,7 @@ function Hero({ onRegister }: { onRegister: () => void }) {
           <span className="flex items-center gap-2"><MapPin className="h-4 w-4 text-[var(--neon-purple)]" /> MITM College</span>
           <span className="flex items-center gap-2"><Users className="h-4 w-4 text-[var(--neon-cyan)]" /> 2–4 Members</span>
           <span className="flex items-center gap-2"><Trophy className="h-4 w-4 text-[var(--neon-blue)]" /> ₹15,000 Pool</span>
+          <span className="flex items-center gap-2"><Sparkles className="h-4 w-4 text-[var(--neon-cyan)]" /> ₹150 / head</span>
         </div>
       </div>
       <ChevronDown className="absolute bottom-6 left-1/2 -translate-x-1/2 h-6 w-6 text-muted-foreground animate-bounce" />
@@ -201,8 +202,8 @@ function SectionHeader({ tag, title, sub }: { tag: string; title: string; sub?: 
 
 function About() {
   const items = [
-    { icon: Sparkles, t: "Event Purpose", d: "A 1-day high-voltage hackathon empowering students to ideate, prototype and pitch solutions that solve real problems." },
-    { icon: Zap, t: "Innovation Goals", d: "Push boundaries in cybersecurity, healthcare and AI/robotics. Ship working prototypes — not just slide decks." },
+    { icon: Sparkles, t: "Event Purpose", d: "A 1-day high-voltage Thinkathon empowering students to ideate, prototype and pitch solutions that solve real problems." },
+    { icon: Zap, t: "Innovation Goals", d: "Pitch your idea for a problem currently faced by society — in cybersecurity, healthcare or AI/robotics — and turn it into a working prototype, not just slides." },
     { icon: Users, t: "Student Collaboration", d: "Cross-disciplinary teams of 2–4 unite to learn, build and battle for the ₹15,000 prize pool." },
   ];
   return (
@@ -450,11 +451,9 @@ function Footer() {
           <div>
             <h4 className="font-semibold mb-3">Follow</h4>
             <div className="flex gap-3">
-              {[Instagram, Linkedin, Github].map((I, i) => (
-                <a key={i} href="#" className="h-10 w-10 rounded-full glass flex items-center justify-center hover:border-[var(--neon-blue)]/50 hover:text-[var(--neon-blue)] transition-colors" aria-label="social">
-                  <I className="h-4 w-4" />
-                </a>
-              ))}
+              <a href="#" className="h-10 w-10 rounded-full glass flex items-center justify-center hover:border-[var(--neon-blue)]/50 hover:text-[var(--neon-blue)] transition-colors" aria-label="Instagram">
+                <Instagram className="h-4 w-4" />
+              </a>
             </div>
           </div>
         </div>
