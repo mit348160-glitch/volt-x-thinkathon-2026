@@ -483,7 +483,7 @@ function Index() {
         <Timeline />
         <Prizes onRegister={onRegister} />
         <Gallery />
-        <Sponsors />
+        
         <QRSection onRegister={onRegister} />
         <FAQ />
         <Contact />
