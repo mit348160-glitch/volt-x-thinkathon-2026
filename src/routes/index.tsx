@@ -32,14 +32,14 @@ const DOMAINS = [
 ];
 
 const TIMELINE = [
-  { d: "01 Apr 2026", t: "Registration Opens", desc: "Form your team of 2–4 and lock your domain." },
+  { d: "09 May 2026", t: "Registration Opens", desc: "Form your team of 2–4 and lock your domain." },
   { d: "20 May 2026", t: "Registration Closes", desc: "Final submissions of team details and ideas." },
   { d: "29 May 2026", t: "Event Day", desc: "Hack from sunrise to spotlight at MITM Mysore." },
   { d: "30 May 2026", t: "Winners Announced", desc: "₹15,000 prize pool unlocked for the best builds." },
 ];
 
-const STUDENTS = ["Yashwanth HB", "Saqib Ahmed Z", "Sandesh SP", "Likith V", "Vaishakh B", "Akshay G", "Sumukh Bharadwaj KS"];
-const FACULTY = ["Prof. Shivaprasad K", "Prof. Sandesh N G", "Dr. Balakrishna K"];
+const STUDENTS = ["Akshay G", "Likith V", "Sandesh SP", "Saqib Ahmed Z", "Sumukh Bharadwaj KS", "Vaishakh B", "Yashwanth HB"];
+const FACULTY = ["Dr. Balakrishna K", "Prof. Shivaprasad K", "Prof. Sandesh N G"];
 
 const FAQS = [
   { q: "Who can participate?", a: "Any undergraduate student passionate about innovation. Teams of 2–4 across disciplines are welcome." },
