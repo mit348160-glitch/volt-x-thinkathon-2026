@@ -1,18 +1,46 @@
 import { useEffect, useState } from "react";
 import { Zap } from "lucide-react";
 
+const SESSION_KEY = "ignivox.splashShown";
+
 export function Splash() {
-  const [gone, setGone] = useState(false);
+  // Initialize from sessionStorage so repeat visits skip immediately.
+  const [gone, setGone] = useState(() => {
+    if (typeof window === "undefined") return false;
+    try {
+      return sessionStorage.getItem(SESSION_KEY) === "1";
+    } catch {
+      return false;
+    }
+  });
   const [fade, setFade] = useState(false);
 
+  const dismiss = () => {
+    setFade(true);
+    try {
+      sessionStorage.setItem(SESSION_KEY, "1");
+    } catch {
+      /* ignore */
+    }
+    window.setTimeout(() => setGone(true), 500);
+  };
+
   useEffect(() => {
-    const t1 = setTimeout(() => setFade(true), 1800);
-    const t2 = setTimeout(() => setGone(true), 2400);
+    if (gone) return;
+    const t1 = window.setTimeout(() => setFade(true), 1800);
+    const t2 = window.setTimeout(() => {
+      try {
+        sessionStorage.setItem(SESSION_KEY, "1");
+      } catch {
+        /* ignore */
+      }
+      setGone(true);
+    }, 2400);
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
     };
-  }, []);
+  }, [gone]);
 
   if (gone) return null;
 
@@ -35,13 +63,24 @@ export function Splash() {
         <h1 className="mt-6 text-4xl sm:text-6xl font-bold font-display tracking-tight animate-fade-up">
           VOLT <span className="text-gradient">X</span> IGNIVOX
         </h1>
-        <p className="mt-3 text-sm uppercase tracking-[0.4em] text-muted-foreground animate-fade-up" style={{ animationDelay: "0.2s" }}>
+        <p
+          className="mt-3 text-sm uppercase tracking-[0.4em] text-muted-foreground animate-fade-up"
+          style={{ animationDelay: "0.2s" }}
+        >
           Igniting Ideas · 2026
         </p>
         <div className="mt-8 h-[2px] w-48 overflow-hidden rounded-full bg-white/10">
           <div className="h-full w-full bg-gradient-to-r from-[var(--neon-purple)] via-[var(--neon-blue)] to-[var(--neon-cyan)] origin-left animate-[splash-bar_1.8s_ease-out_forwards]" />
         </div>
       </div>
+
+      <button
+        onClick={dismiss}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-xs uppercase tracking-[0.3em] text-muted-foreground hover:text-foreground transition-colors px-4 py-2 rounded-full glass"
+        aria-label="Skip splash screen"
+      >
+        Skip intro
+      </button>
 
       <style>{`
         @keyframes splash-bar {
