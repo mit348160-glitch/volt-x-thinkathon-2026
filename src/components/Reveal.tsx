@@ -1,15 +1,14 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode, type CSSProperties } from "react";
 
 type Props = {
   children: ReactNode;
   className?: string;
   delay?: number;
   y?: number;
-  as?: keyof JSX.IntrinsicElements;
 };
 
-export function Reveal({ children, className = "", delay = 0, y = 24, as: Tag = "div" }: Props) {
-  const ref = useRef<HTMLElement | null>(null);
+export function Reveal({ children, className = "", delay = 0, y = 24 }: Props) {
+  const ref = useRef<HTMLDivElement | null>(null);
   const [shown, setShown] = useState(false);
 
   useEffect(() => {
@@ -35,7 +34,7 @@ export function Reveal({ children, className = "", delay = 0, y = 24, as: Tag = 
     return () => io.disconnect();
   }, []);
 
-  const style: React.CSSProperties = {
+  const style: CSSProperties = {
     transition: "opacity 700ms cubic-bezier(0.16,1,0.3,1), transform 700ms cubic-bezier(0.16,1,0.3,1)",
     transitionDelay: `${delay}ms`,
     transform: shown ? "translate3d(0,0,0)" : `translate3d(0,${y}px,0)`,
@@ -43,6 +42,9 @@ export function Reveal({ children, className = "", delay = 0, y = 24, as: Tag = 
     willChange: "opacity, transform",
   };
 
-  // @ts-expect-error dynamic tag ref
-  return <Tag ref={ref} className={className} style={style}>{children}</Tag>;
+  return (
+    <div ref={ref} className={className} style={style}>
+      {children}
+    </div>
+  );
 }
