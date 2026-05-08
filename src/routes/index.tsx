@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { Countdown } from "@/components/Countdown";
 import { Splash } from "@/components/Splash";
+import { Reveal } from "@/components/Reveal";
 import heroBg from "@/assets/hero-bg.jpg";
 
 export const Route = createFileRoute("/")({
@@ -455,13 +456,13 @@ function Index() {
       <Navbar />
       <main>
         <Hero onRegister={onRegister} />
-        <About />
-        <Domains />
-        <Timeline />
-        <Prizes onRegister={onRegister} />
-        <QRSection onRegister={onRegister} />
-        <FAQ />
-        <Contact />
+        <Reveal><About /></Reveal>
+        <Reveal><Domains /></Reveal>
+        <Reveal><Timeline /></Reveal>
+        <Reveal><Prizes onRegister={onRegister} /></Reveal>
+        <Reveal><QRSection onRegister={onRegister} /></Reveal>
+        <Reveal><FAQ /></Reveal>
+        <Reveal><Contact /></Reveal>
       </main>
       <Footer />
       <RegisterModal open={modal} onClose={() => setModal(false)} />
