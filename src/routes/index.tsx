@@ -34,8 +34,7 @@ const DOMAINS = [
 const TIMELINE = [
   { d: "09 May 2026", t: "Registration Opens", desc: "Form your team of 2–4 and lock your domain." },
   { d: "20 May 2026", t: "Registration Closes", desc: "Final submissions of team details and ideas." },
-  { d: "29 May 2026", t: "Event Day", desc: "Hack from sunrise to spotlight at MITM Mysore." },
-  { d: "30 May 2026", t: "Winners Announced", desc: "₹15,000 prize pool unlocked for the best builds." },
+  { d: "25 May 2026", t: "Event Day & Winners Announced", desc: "Pitch, build, and the ₹15,000 prize pool is unlocked the same day at MITM Mysore." },
 ];
 
 const STUDENTS = ["Akshay G", "Likith V", "Sandesh SP", "Saqib Ahmed Z", "Sumukh Bharadwaj KS", "Vaishakh B", "Subbaiah K P", "Yashwanth HB"];
@@ -150,7 +149,7 @@ function Hero({ onRegister }: { onRegister: () => void }) {
       <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 text-center">
         <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 text-xs sm:text-sm text-muted-foreground mb-8 animate-fade-up">
           <Sparkles className="h-3.5 w-3.5 text-[var(--neon-cyan)]" />
-          <span>MITM Mysore · ECE Department · 29 May 2026</span>
+          <span>MITM Mysore · ECE Department · 25 May 2026</span>
         </div>
         <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold font-display leading-[0.95] tracking-tight animate-fade-up" style={{ animationDelay: "0.1s" }}>
           VOLT <span className="text-gradient">X</span> THINKATHON
@@ -178,7 +177,7 @@ function Hero({ onRegister }: { onRegister: () => void }) {
         </div>
 
         <div className="mt-12 flex flex-wrap justify-center gap-6 text-xs sm:text-sm text-muted-foreground animate-fade-up" style={{ animationDelay: "0.5s" }}>
-          <span className="flex items-center gap-2"><Calendar className="h-4 w-4 text-[var(--neon-blue)]" /> 29 May 2026</span>
+          <span className="flex items-center gap-2"><Calendar className="h-4 w-4 text-[var(--neon-blue)]" /> 25 May 2026</span>
           <span className="flex items-center gap-2"><MapPin className="h-4 w-4 text-[var(--neon-purple)]" /> MITM College</span>
           <span className="flex items-center gap-2"><Users className="h-4 w-4 text-[var(--neon-cyan)]" /> 2–4 Members</span>
           <span className="flex items-center gap-2"><Trophy className="h-4 w-4 text-[var(--neon-blue)]" /> ₹15,000 Pool</span>
