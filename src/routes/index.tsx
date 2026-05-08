@@ -6,6 +6,7 @@ import {
   ChevronDown, Sparkles, ArrowRight, CheckCircle2,
 } from "lucide-react";
 import { Countdown } from "@/components/Countdown";
+import { Splash } from "@/components/Splash";
 import heroBg from "@/assets/hero-bg.jpg";
 
 export const Route = createFileRoute("/")({
@@ -20,7 +21,6 @@ const NAV = [
   { l: "Domains", h: "#domains" },
   { l: "Timeline", h: "#timeline" },
   { l: "Prizes", h: "#prizes" },
-  { l: "Gallery", h: "#gallery" },
   { l: "FAQ", h: "#faq" },
   { l: "Contact", h: "#contact" },
 ];
@@ -42,7 +42,7 @@ const FACULTY = ["Dr. Balakrishna K", "Prof. Shivaprasad K", "Prof. Sandesh N G"
 
 const FAQS = [
   { q: "Who can participate?", a: "Any undergraduate student passionate about innovation. Teams of 2–4 across disciplines are welcome." },
-  { q: "Is there a registration fee?", a: "Yes. A registration fee of ₹150 per head is applicable for VOLT X THINKATHON 2026." },
+  { q: "Is there a registration fee?", a: "Yes. A registration fee of ₹150 per head is applicable for VOLT X IGNIVOX 2026." },
   { q: "Where is the venue?", a: "Maharaja Institute of Technology Mysore (MITM) — ECE Department, Belawadi, Srirangapatna." },
   { q: "What should we bring?", a: "Laptops, chargers, your stack of choice, hardware (if any) and unlimited curiosity." },
   { q: "Where are responses stored?", a: "All registrations submitted via the Google Form are securely stored in Google Sheets." },
@@ -64,7 +64,7 @@ function Navbar() {
             <span className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-[oklch(0.65_0.27_305)] to-[oklch(0.72_0.2_235)] shadow-[var(--shadow-neon-blue)]">
               <Zap className="h-5 w-5 text-white" />
             </span>
-            <span className="text-base sm:text-lg">VOLT<span className="text-gradient"> X </span>THINKATHON</span>
+            <span className="text-base sm:text-lg">VOLT<span className="text-gradient"> X </span>IGNIVOX</span>
           </a>
           <ul className="hidden lg:flex items-center gap-7 text-sm">
             {NAV.map((n) => (
@@ -152,7 +152,7 @@ function Hero({ onRegister }: { onRegister: () => void }) {
           <span>MITM Mysore · ECE Department · 25 May 2026</span>
         </div>
         <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold font-display leading-[0.95] tracking-tight animate-fade-up" style={{ animationDelay: "0.1s" }}>
-          VOLT <span className="text-gradient">X</span> THINKATHON
+          VOLT <span className="text-gradient">X</span> IGNIVOX
           <span className="block text-3xl sm:text-5xl lg:text-6xl mt-3 text-muted-foreground font-medium">2026</span>
         </h1>
         <p className="mt-6 text-lg sm:text-2xl text-muted-foreground max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: "0.2s" }}>
@@ -294,28 +294,6 @@ function Prizes({ onRegister }: { onRegister: () => void }) {
   );
 }
 
-function Gallery() {
-  const seeds = [11, 22, 33, 44, 55, 66];
-  return (
-    <section id="gallery" className="relative py-24 px-4 sm:px-6">
-      <div className="mx-auto max-w-6xl">
-        <SectionHeader tag="Glimpses" title="Moments from our innovation labs." />
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {seeds.map((s, i) => (
-            <div key={s} className={`relative overflow-hidden rounded-2xl glass-card group ${i === 0 ? "md:col-span-2 md:row-span-2 aspect-square" : "aspect-square"}`}>
-              <div className="absolute inset-0 bg-gradient-to-br from-[oklch(0.65_0.27_305)]/30 to-[oklch(0.72_0.2_235)]/30 group-hover:scale-110 transition-transform duration-700" />
-              <div className="absolute inset-0 grid-bg opacity-40" />
-              <div className="relative h-full w-full flex items-center justify-center text-muted-foreground/50 text-sm">
-                <Sparkles className="h-8 w-8" />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Sponsors() {
   const names = ["MITM", "ECE Dept", "IEEE", "Innovation Cell", "Tech Club", "Startup Hub"];
   return (
@@ -435,9 +413,9 @@ function Footer() {
               <span className="h-9 w-9 rounded-lg bg-gradient-to-br from-[oklch(0.65_0.27_305)] to-[oklch(0.72_0.2_235)] flex items-center justify-center">
                 <Zap className="h-5 w-5 text-white" />
               </span>
-              VOLT X THINKATHON
+              VOLT X IGNIVOX
             </div>
-            <p className="text-sm text-muted-foreground">Powering Ideas. Building Tomorrow. Hosted by MITM Mysore — ECE Department.</p>
+            <p className="text-sm text-muted-foreground">Igniting Ideas. Building Tomorrow. Hosted by MITM Mysore — ECE Department.</p>
           </div>
           <div>
             <h4 className="font-semibold mb-3">Quick Links</h4>
@@ -457,7 +435,7 @@ function Footer() {
           </div>
         </div>
         <div className="pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-muted-foreground">
-          <span>© 2026 VOLT X THINKATHON · MITM ECE Department. All rights reserved.</span>
+          <span>© 2026 VOLT X IGNIVOX · MITM ECE Department. All rights reserved.</span>
           <span>Crafted with ⚡ for innovators.</span>
         </div>
       </div>
@@ -473,6 +451,7 @@ function Index() {
   };
   return (
     <div className="dark min-h-screen bg-background text-foreground relative">
+      <Splash />
       <Navbar />
       <main>
         <Hero onRegister={onRegister} />
@@ -480,8 +459,6 @@ function Index() {
         <Domains />
         <Timeline />
         <Prizes onRegister={onRegister} />
-        <Gallery />
-        
         <QRSection onRegister={onRegister} />
         <FAQ />
         <Contact />
